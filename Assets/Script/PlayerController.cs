@@ -10,12 +10,15 @@ public class PlayerController : MonoBehaviour
     float time = 0;
     int idx = 0;
     SpriteRenderer spriteRenderer;
+    GameObject director;
 
     void Start()
     {
         Application.targetFrameRate = 600;
         rigid2D = GetComponent<Rigidbody2D>();
         spriteRenderer = GetComponent<SpriteRenderer>();
+
+        director = GameObject.Find("GameDirector");
     }
 
     void Update()

@@ -3,6 +3,7 @@ using UnityEngine;
 public class ItemController : MonoBehaviour
 {
     GameObject player;
+    GameDirector director;
 
     //落下設定
     [SerializeField] private float throwSpeed = 5.0f; // 1秒間に進む距離
@@ -17,6 +18,7 @@ public class ItemController : MonoBehaviour
     void Start()
     {
         player = GameObject.Find("Player");
+        director = GameObject.Find("GameDirector").GetComponent<GameDirector>();
 
         // 生まれた時にランダムな回転速度（正負で回転方向もランダム）を決める
         float direction;
@@ -40,23 +42,24 @@ public class ItemController : MonoBehaviour
         // Z軸を中心に回転させる
         transform.Rotate(0, 0, rotationSpeed * Time.deltaTime);
 
-        // 画面外に出たら削除
+        // 画面外に出たらHPを減らして削除
         if (transform.position.x < destroyXPosition)
         {
+            // GameDirectorに「画面外に消えた（取り逃した）」と知らせる
+            director.DecreaseHp();
+
             Destroy(gameObject);
             return;
         }
+    }
 
-        // 当たり判定(円と円)
-        Vector2 p1 = transform.position;
-        Vector2 p2 = player.transform.position;
-        Vector2 dir = p1 - p2;
-        float d = dir.magnitude;
-        float r1 = 0.5f;
-        float r2 = 1.0f;
-
-        if (d < r1 + r2)
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Player"))
         {
+            // GameDirectorに「プレイヤーが取得した（スコア加算）」と知らせる
+            director.CatchItem();
+
             // 当たったリンゴを消す
             Destroy(gameObject);
         }
