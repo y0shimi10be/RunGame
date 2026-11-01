@@ -14,6 +14,7 @@ public class PlayerController : MonoBehaviour
 
     void Start()
     {
+
         Application.targetFrameRate = 600;
         rigid2D = GetComponent<Rigidbody2D>();
         spriteRenderer = GetComponent<SpriteRenderer>();

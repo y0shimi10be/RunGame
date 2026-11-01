@@ -258,6 +258,7 @@ GameObject:
   - component: {fileID: 503029481}
   - component: {fileID: 503029480}
   - component: {fileID: 503029479}
+  - component: {fileID: 503029482}
   m_Layer: 0
   m_Name: PlayerGround
   m_TagString: Untagged
@@ -380,11 +381,29 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -6.54, y: -4, z: 0}
-  m_LocalScale: {x: 2, y: 1, z: 1}
+  m_LocalScale: {x: 3, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &503029482
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 503029478}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 763d604d1c61cea4585cb08e8e8742e6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ScreenPositioner
+  player: {fileID: 1482013523}
+  playerGround: {fileID: 503029478}
+  leftScreenPercent: 0.14
+  verticalPositionPlayer: 0.3
+  groundOffsetY: -10
+  Layer: 2
 --- !u!1 &508971506
 GameObject:
   m_ObjectHideFlags: 0
@@ -1175,6 +1194,7 @@ GameObject:
   - component: {fileID: 1482013528}
   - component: {fileID: 1482013527}
   - component: {fileID: 1482013526}
+  - component: {fileID: 1482013530}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -1372,6 +1392,24 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
+--- !u!114 &1482013530
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1482013523}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 763d604d1c61cea4585cb08e8e8742e6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ScreenPositioner
+  player: {fileID: 1482013523}
+  playerGround: {fileID: 503029478}
+  leftScreenPercent: 0.14
+  verticalPositionPlayer: 0.3
+  groundOffsetY: -2
+  Layer: 2
 --- !u!1 &1728191626
 GameObject:
   m_ObjectHideFlags: 0
@@ -1425,14 +1463,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.5882353}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.6156863}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
+  m_Sprite: {fileID: 10911, guid: 0000000000000000f000000000000000, type: 0}
   m_Type: 1
   m_PreserveAspect: 0
   m_FillCenter: 1
