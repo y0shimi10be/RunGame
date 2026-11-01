@@ -2,9 +2,9 @@ using UnityEngine;
 
 public class BgLoop : MonoBehaviour
 {
+    private Material Bg;
     public Camera mainCamera;
     [SerializeField] private float speed = 0.05f; // 移動スピード
-    private Material Bg;
 
     void Start()
     {

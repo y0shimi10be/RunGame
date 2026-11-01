@@ -3,12 +3,12 @@ using UnityEngine.InputSystem;
 
 public class PlayerController : MonoBehaviour
 {
-    Rigidbody2D rigid2D;
     [SerializeField] private float jumpForce = 60.0f; // ジャンプの力
     [SerializeField] private float spriteInterval = 1.0f; // スプライトの切り替え間隔(秒)
     public Sprite[] walkSprites;
     float time = 0;
     int idx = 0;
+    Rigidbody2D rigid2D;
     SpriteRenderer spriteRenderer;
     GameObject director;
 
@@ -17,7 +17,6 @@ public class PlayerController : MonoBehaviour
         Application.targetFrameRate = 600;
         rigid2D = GetComponent<Rigidbody2D>();
         spriteRenderer = GetComponent<SpriteRenderer>();
-
         director = GameObject.Find("GameDirector");
     }
 

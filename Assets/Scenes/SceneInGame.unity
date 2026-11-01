@@ -149,6 +149,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ItemGenerator
   ItemApplePrefab: {fileID: 6515535099628408009, guid: b32ed4fbb64a32c499fdf9a3a5184b8e, type: 3}
+  span: 1
+  maxY: 5
+  minY: -3
+  spawnX: 11
 --- !u!4 &93622717
 Transform:
   m_ObjectHideFlags: 0
