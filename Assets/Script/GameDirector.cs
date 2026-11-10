@@ -11,6 +11,7 @@ public class GameDirector : MonoBehaviour
     [SerializeField] GameObject hpGauge;
     [SerializeField] GameObject scoreText;
     [SerializeField] GameObject RetryPanel;
+    [SerializeField] GameObject FinalScore;
 
     private bool isGameOver = false; // 二重処理を防ぐフラグ
 
@@ -30,7 +31,7 @@ public class GameDirector : MonoBehaviour
     {
         if (isGameOver) return; // ゲームオーバー中は更新を止める
 
-        scoreText.GetComponent<TextMeshProUGUI>().text = "Score : " + Score.ToString();
+        scoreText.GetComponent<TextMeshProUGUI>().text = "SCORE : " + Score.ToString();
     }
 
     // アイテムをキャッチするとスコア加算(アイテムから呼ばれる)
@@ -55,6 +56,12 @@ public class GameDirector : MonoBehaviour
     public void GameOver()
     {
         isGameOver = true;
+
+        // 最終スコアを表示する
+        if (FinalScore != null)
+        {
+            FinalScore.GetComponent<TextMeshProUGUI>().text = Score.ToString();
+        }
 
         // ゲームオーバーパネルを表示する
         if (RetryPanel != null)
